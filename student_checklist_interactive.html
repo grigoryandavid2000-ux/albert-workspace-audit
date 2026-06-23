@@ -166,6 +166,10 @@
   </div>
 
 <script>
+if(!localStorage.getItem('workspaceChecklistDataAlbertFilled')){
+  localStorage.removeItem('workspaceChecklistData');
+  localStorage.setItem('workspaceChecklistDataAlbertFilled', '1');
+}
 const data = [
   {
     title:"1. Назначение рабочего места",
