@@ -94,7 +94,7 @@
       <div class="nav">
         <a class="btn primary" href="student_report_template.html">Открыть шаблон отчёта</a>
         <a class="btn secondary" href="student_html_guide.html">Инструкция по HTML и ИИ</a>
-        <a class="btn secondary" href="student_infrastructure_project.html">Проект оборудования</a>
+        <a class="btn secondary" href="https://grigoryandavid2000-ux.github.io/auditoriya-6235-site/?v=2">Проект оборудования</a>
         <a class="btn secondary" href="index.html">Главная страница</a>
         <a class="btn secondary" href="student_publish_site_guide.html">Как опубликовать сайт</a>
       </div>
@@ -120,7 +120,7 @@
       <div class="summary">
         <div class="sum-card">
           <strong>Набрано баллов</strong>
-          <div class="big" id="sum">76</div>
+          <div class="big" id="sum">64</div>
         </div>
         <div class="sum-card">
           <strong>Максимум</strong>
@@ -128,7 +128,7 @@
         </div>
         <div class="sum-card">
           <strong>Процент</strong>
-          <div class="big" id="percent">83%</div>
+          <div class="big" id="percent">70%</div>
         </div>
         <div class="sum-card">
           <strong>Результат</strong>
@@ -139,17 +139,23 @@
       <div class="cols" style="margin-top:16px;">
         <div>
           <h3>Три сильные стороны</h3>
-          <textarea id="strengths" placeholder="Например: удачное расположение монитора, достаточная оперативная память, хорошая кабельная организация."></textarea>
+          <textarea id="strengths" placeholder="Например: удачное расположение монитора, достаточная оперативная память, хорошая кабельная организация.">1. Есть отдельная закрытая комната, поэтому можно спокойно учиться, программировать и участвовать в онлайн-занятиях.
+2. Интернет достаточно быстрый: около 250 Мбит/с, этого хватает для видеосвязи, загрузки файлов, игр и облачных сервисов.
+3. Ноутбук нормально справляется с учебными задачами, документами и программированием, а внешний накопитель на 1 ТБ помогает хранить файлы и резервные копии.</textarea>
         </div>
         <div>
           <h3>Три проблемные зоны</h3>
-          <textarea id="problems" placeholder="Например: нехватка пространства, плохое освещение, неудобное расположение клавиатуры."></textarea>
+          <textarea id="problems" placeholder="Например: нехватка пространства, плохое освещение, неудобное расположение клавиатуры.">1. Стол небольшой, поэтому не всегда удобно одновременно размещать ноутбук, монитор, мышь, клавиатуру и документы.
+2. Стул не самый удобный для долгой работы, из-за этого при длительной учёбе может уставать спина.
+3. Освещение рабочей зоны можно улучшить: не хватает отдельной лампы или направленного верхнего света.</textarea>
         </div>
       </div>
 
       <div style="margin-top:14px;">
         <h3>Три улучшения с наибольшим эффектом</h3>
-        <textarea id="improvements" placeholder="Например: поднять монитор, добавить быстрый SSD, организовать кабели, улучшить освещение."></textarea>
+        <textarea id="improvements" placeholder="Например: поднять монитор, добавить быстрый SSD, организовать кабели, улучшить освещение.">1. Добавить отдельную лампу или верхний направленный свет, чтобы снизить нагрузку на зрение.
+2. Заменить стул на более удобный вариант с поддержкой спины.
+3. Увеличить рабочую поверхность: заменить стол на более широкий или добавить приставную полку/секцию.</textarea>
       </div>
 
       <div class="actions">
@@ -326,7 +332,10 @@ function saveAll(){
 
 function loadAll(){
   const raw = localStorage.getItem('workspaceChecklistData');
-  if(!raw) return;
+  if(!raw) {
+    applyAlbertDefaults();
+    return;
+  }
   try{
     const data = JSON.parse(raw);
     Object.entries(data.scores || {}).forEach(([name,val]) => {
@@ -338,6 +347,26 @@ function loadAll(){
     document.getElementById('improvements').value = data.improvements || '';
     updateSummary();
   }catch(e){}
+}
+
+function applyAlbertDefaults(){
+  const defaults = [
+    2,2,2,2,
+    0,1,2,2,1,
+    0,1,1,1,0,1,
+    1,2,1,2,1,
+    2,2,2,1,2,
+    2,2,1,2,1,
+    1,2,2,2,1,
+    1,1,2,1,2,
+    1,2,1,1,1,1
+  ];
+  defaults.forEach((value, index) => {
+    const input = document.querySelector(`input[name="item_${index}"][value="${value}"]`);
+    if(input) input.checked = true;
+  });
+  updateSummary();
+  saveAll();
 }
 
 document.addEventListener('change', (e) => {
