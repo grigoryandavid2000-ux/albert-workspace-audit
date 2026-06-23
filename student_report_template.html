@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Отчёт Альберта Григоряна</title>
+  <style>
+    :root{
+      --bg:#f4f7fc; --card:#ffffff; --text:#18212f; --muted:#5f6b7a; --line:#dde6f0;
+      --primary:#2457d6; --primary2:#4f86ff; --soft:#ecf3ff; --green:#0f766e; --warn:#9a6700;
+      --shadow:0 14px 36px rgba(24,33,47,.10); --radius:22px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#f7faff 0%, #f2f5fb 100%);line-height:1.58;}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 56px;}
+    .hero{background:linear-gradient(135deg,#1f4ec9 0%, #3a76ff 100%);color:#fff;border-radius:28px;padding:28px 26px;box-shadow:var(--shadow);}
+    .eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;letter-spacing:.02em;margin-bottom:14px;}
+    h1{margin:0;font-size:clamp(28px,4vw,42px);line-height:1.08;}
+    .hero p{margin:14px 0 0;max-width:860px;font-size:17px;opacity:.98;}
+    .nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+    .btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:14px;font-weight:700;transition:.2s ease;border:1px solid transparent;cursor:pointer;}
+    .btn.primary{background:#fff;color:#1f4ec9;}
+    .btn.secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.20);}
+    .section{margin-top:18px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #edf2f8;padding:24px 22px;}
+    .section h2{margin:0 0 10px;font-size:26px;line-height:1.15;}
+    .lead{margin:0 0 14px;color:var(--muted);font-size:16px;}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .card{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff;}
+    .card h3{margin:0 0 8px;font-size:19px;}
+    .field, textarea, input[type="text"]{
+      width:100%; border:1px solid var(--line); border-radius:14px; padding:12px 14px;
+      font:inherit; color:var(--text); background:#fff;
+    }
+    textarea{min-height:120px; resize:vertical;}
+    .small{min-height:90px;}
+    .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .sum-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;}
+    .sum-card strong{display:block;font-size:14px;color:var(--muted);}
+    .big{font-size:34px;font-weight:800;color:var(--primary);line-height:1;margin-top:8px;}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .ph{
+      border:2px dashed #cfdcf0; border-radius:18px; min-height:220px; display:flex;
+      align-items:center; justify-content:center; color:var(--muted); text-align:center; padding:20px;
+      background:#fbfcfe;
+    }
+    .ph img{width:100%; height:100%; min-height:260px; object-fit:cover; display:block; border-radius:16px;}
+    .caption-text{margin:8px 0 0; color:var(--muted); font-size:14px;}
+    .note{border-radius:18px;padding:16px 18px;border:1px solid #d6ebdf;background:#f1fcf6;}
+    .note strong{color:var(--green);}
+    .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:14px;}
+    @media (max-width:900px){.grid,.summary,.gallery{grid-template-columns:1fr;}}
+    @media print{
+      body{background:#fff}
+      .hero,.section{box-shadow:none}
+      .btn,.nav{display:none !important}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Отчёт студента</div>
+      <h1>Аудит домашнего рабочего места и проект улучшения</h1>
+      <p>Работа описывает домашнее место Альберта Григоряна, которое используется для учёбы, программирования, документов, дизайна, игр, онлайн-занятий и других повседневных задач.</p>
+      <div class="nav">
+        <a class="btn primary" href="student_checklist_interactive.html">Вернуться к чек-листу</a>
+        <a class="btn secondary" href="student_html_guide.html">Инструкция по HTML и ИИ</a>
+        <a class="btn secondary" href="student_infrastructure_project.html">Проект оборудования</a>
+        <a class="btn secondary" href="student_publish_site_guide.html">Публикация сайта</a>
+        <button class="btn secondary" onclick="window.print()">Сохранить как PDF / печать</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>1. Общая информация</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>ФИО / автор</h3>
+          <input type="text" id="studentName" class="field" value="Альберт Григорян" />
+        </div>
+        <div class="card">
+          <h3>Объект анализа</h3>
+          <input type="text" id="objectName" class="field" value="Домашнее рабочее место" />
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Назначение рабочего пространства</h3>
+        <textarea id="purpose">Моё домашнее рабочее место используется для учёбы, программирования, работы с документами, дизайна, онлайн-занятий, общения, игр и других повседневных задач. Основная нагрузка приходится на ноутбук, потому что он лучше подходит для учебных задач, а стационарный ПК сейчас слабее и требует обновления.</textarea>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>2. Итоги чек-листа</h2>
+      <div class="summary">
+        <div class="sum-card"><strong>Набрано баллов</strong><div class="big" id="sum">64</div></div>
+        <div class="sum-card"><strong>Максимум</strong><div class="big" id="max">92</div></div>
+        <div class="sum-card"><strong>Процент</strong><div class="big" id="percent">70%</div></div>
+        <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700;">Хорошая организация, есть точки для улучшения</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>3. Ключевые наблюдения</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Сильные стороны</h3>
+          <textarea id="strengths" class="small">Есть отдельная закрытая комната, поэтому можно спокойно учиться и созваниваться без постоянного шума. Интернет достаточно быстрый: около 250 Мбит/с, этого хватает для онлайн-занятий, загрузки файлов, игр и работы с облачными сервисами. Ноутбук нормально справляется с учебными задачами, программированием и документами. Также есть внешний накопитель на 1 ТБ, который можно использовать для хранения файлов, проектов и резервных копий.</textarea>
+        </div>
+        <div class="card">
+          <h3>Проблемные зоны</h3>
+          <textarea id="problems" class="small">Главная проблема - маленький стол: на нём сложно удобно разместить ноутбук, ПК, периферию, тетради и другие вещи. Стул неудобный для длительной работы, из-за этого может уставать спина. Освещение недостаточное: не хватает отдельной лампы сверху или направленного света на рабочую поверхность. Стационарный ПК слабый, поэтому часть задач приходится переносить на ноутбук.</textarea>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Три улучшения с наибольшим эффектом</h3>
+        <textarea id="improvements">1. Увеличить рабочую поверхность: заменить стол на более широкий или добавить боковую полку/приставку. 2. Поставить нормальную настольную или верхнюю лампу, чтобы рабочая зона была освещена равномерно и без сильных бликов. 3. Заменить стул на более удобный, с поддержкой спины, и постепенно обновить слабый ПК, чтобы он не ограничивал работу.</textarea>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>4. Проект улучшения</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Что можно улучшить без существенных затрат</h3>
+          <textarea id="noBudget" class="small">Разобрать рабочую поверхность и оставить на столе только то, что используется каждый день. Перенести лишние вещи на полку или в ящик. Разделить зоны: ноутбук и документы - на основной поверхности, редко используемые предметы - отдельно. Проверить расположение проводов и зарядок, чтобы они не занимали полезное место на столе.</textarea>
+        </div>
+        <div class="card">
+          <h3>Что потребует бюджета, но даст заметный эффект</h3>
+          <textarea id="withBudget" class="small">Более широкий стол или дополнительная приставная поверхность. Удобный стул с регулировкой высоты и поддержкой спины. Настольная лампа или верхний направленный свет. При возможности - обновление ПК: SSD, оперативная память или более современная сборка, если текущая конфигурация уже не тянет нужные задачи.</textarea>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Обоснование моей идеи</h3>
+        <textarea id="justification">Рабочее место уже можно использовать для большинства задач, но оно не раскрывает весь потенциал техники из-за ограничений пространства и эргономики. Маленький стол заставляет постоянно переставлять предметы, неудобный стул мешает долго сидеть за учёбой, а слабый свет повышает нагрузку на зрение. Поэтому самые рациональные улучшения - не декоративные, а практические: больше места, лучше свет, удобная посадка и постепенное усиление ПК.</textarea>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>5. Визуальные материалы</h2>
+      <p class="lead">Слева показано реальное состояние рабочего места, справа - AI-визуализация возможного улучшенного варианта.</p>
+      <div class="gallery">
+        <div>
+          <div class="ph" style="padding:0; overflow:hidden;">
+            <img src="images/real-workplace.jpeg" alt="Реальное домашнее рабочее место">
+          </div>
+          <p class="caption-text">Реальное рабочее место: ноутбук, монитор, ПК и текущая организация стола.</p>
+        </div>
+        <div>
+          <div class="ph" style="padding:0; overflow:hidden;">
+            <img src="images/ai-visualization.png" alt="AI-визуализация улучшенного рабочего места">
+          </div>
+          <p class="caption-text">AI-визуализация: пример более удобного варианта с лучшим освещением, посадкой и организацией пространства.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="final">
+      <h2>6. Итоговый вывод</h2>
+      <textarea id="finalConclusion">Домашнее рабочее место в целом подходит для учёбы, программирования, документов, дизайна, онлайн-занятий и отдыха. Его сильные стороны - отдельная комната, нормальный интернет, рабочий ноутбук и наличие внешнего накопителя на 1 ТБ. Основные ограничения связаны не с самой идеей места, а с деталями организации: маленький стол, неудобный стул, недостаточное освещение и слабый ПК. Поэтому улучшение стоит начинать с эргономики и пространства, а уже затем переходить к обновлению техники.</textarea>
+      <div class="note" style="margin-top:14px;"><strong>Итог:</strong> проект улучшения должен сделать рабочее место удобнее для долгой учёбы и многозадачной работы, не превращая его в дорогую и нереалистичную переделку.</div>
+    </section>
+
+    <section class="section">
+      <h2>7. Публикация итоговой работы</h2>
+      <p class="lead">После заполнения отчёта его можно сохранить локально или опубликовать как мини-сайт через GitHub Pages.</p>
+      <div class="note"><strong>Идея:</strong> опубликованная HTML-страница удобна для отправки преподавателю и может стать частью учебного портфолио.</div>
+      <div class="nav" style="margin-top:14px;">
+        <a class="btn primary" href="student_publish_site_guide.html">Открыть инструкцию по публикации</a>
+      </div>
+    </section>
+
+    <div class="footer">Перед сдачей стоит добавить реальные фотографии и проверить, что выводы подтверждаются наблюдениями.</div>
+  </div>
+
+<script>
+function loadChecklistData(){
+  const raw = localStorage.getItem('workspaceChecklistData');
+  if(!raw) return;
+  try{
+    const data = JSON.parse(raw);
+    document.getElementById('sum').textContent = data.sum || '64';
+    document.getElementById('max').textContent = data.max || '92';
+    document.getElementById('percent').textContent = data.percent || '70%';
+    document.getElementById('interp').textContent = data.interpretation || 'Хорошая организация, есть точки для улучшения';
+    if(data.strengths) document.getElementById('strengths').value = data.strengths;
+    if(data.problems) document.getElementById('problems').value = data.problems;
+    if(data.improvements) document.getElementById('improvements').value = data.improvements;
+  } catch(e){}
+}
+function saveReport(){
+  const ids = ['studentName','objectName','purpose','strengths','problems','improvements','noBudget','withBudget','justification','finalConclusion'];
+  const payload = {};
+  ids.forEach(id => payload[id] = document.getElementById(id).value);
+  localStorage.setItem('workspaceReportDraft', JSON.stringify(payload));
+}
+function loadReport(){
+  const raw = localStorage.getItem('workspaceReportDraft');
+  if(!raw) return;
+  try{
+    const data = JSON.parse(raw);
+    Object.entries(data).forEach(([k,v]) => {
+      const el = document.getElementById(k);
+      if(el && v) el.value = v;
+    });
+  } catch(e){}
+}
+document.querySelectorAll('textarea, input[type="text"]').forEach(el => el.addEventListener('input', saveReport));
+loadChecklistData();
+loadReport();
+</script>
+</body>
+</html>
